@@ -30,7 +30,8 @@ TwitterやInstagramといったSNSが流行ったのは、その手軽さと、�
 
 ## 設計書
 初期段階ワイヤーフレーム→　<https://app.diagrams.net/#G1hVig_2sDRgvukl1bOlDaqyndf1KfkVoz>
-db構成→
+
+db構成→ https://app.diagrams.net/#G1k6TO2SV30Ybd9mISaQ1wZ50E--ODP2-g
 
 ### 機能一覧
 <https://docs.google.com/spreadsheets/d/1RAvlNPODtXqntH8UGT32uxjOJYtWg5KG1ZcBxNT584s/edit#gid=0>
