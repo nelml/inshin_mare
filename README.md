@@ -40,6 +40,8 @@ ER図→ https://app.diagrams.net/#G1k6TO2SV30Ybd9mISaQ1wZ50E--ODP2-g
 
 テーブル設計書→ https://docs.google.com/spreadsheets/d/1ZI9zFYjuRWigF1WA75MeE7krUJqwZlIi_KDFhk4CiBQ/edit?usp=sharing
 
+サイトの繋がり→ https://drive.google.com/file/d/1z4qZ1UYEmoCoMaDgpgSTbyxPM7ui95LR/view?usp=sharing
+
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1RAvlNPODtXqntH8UGT32uxjOJYtWg5KG1ZcBxNT584s/edit#gid=0
 
