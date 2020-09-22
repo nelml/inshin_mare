@@ -10,34 +10,32 @@
   </head>
 
   <body>
-    <header class="container-fluid">
-      <div class="row">
-        <div class="col-xs-3">インシンマーレ</div>
-        <div class="col-xs-9">
-          <div class="row">
-            <div class="col-xs-3">
-              コンテンツ１
-            </div>
-
-            <div class="col-xs-3">
-              コンテンツ２
-            </div>
-
-            <div class="col-xs-3">
-              コンテンツ３
-            </div>
-
-            <div class="col-xs-3">
-              コンテンツ４
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
+    <%= render 'shared/header1' %>
     <main class="container-fluid">
       <%= yield %>
     </main>
     <footer class="container-fluid">
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="row">
+            <div class="col-xs-2">
+              リンク１
+            </div>
+            <div class="col-xs-2">
+              リンク２
+            </div>
+            <div class="col-xs-2">
+              リンク３
+            </div>
+            <div class="col-xs-2">
+              リンク４
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          Daiki Nemoto ©
+        </div>
+      </div>
     </footer>
   </body>
 </html>
