@@ -61,3 +61,6 @@
 #   }
 
 server '54.250.103.88', user: 'ec2-user', roles: %w{app web db}
+ssh_options: {
+	keys: %w(~/.ssh/practice-aws.pem)
+}
