@@ -26,12 +26,13 @@ header {
 	position: fixed;
 	top: 0px;
 	left: 0px;
+	z-index: 1;
 	background-color: yellow;
 	height: 120px;
 	width: 100%;
 }
 
-body {
+main {
 	margin-top: 120px;
 	background-color: lime;
 }
@@ -45,9 +46,46 @@ footer {
 	background-color: blue;
 }
 
+// TOP
+
 .title_img {
 	background-image: image-url("rails.png");
 	background-position: center;
 	width: 100px;
 	height: 100px;
+}
+
+.top_image {
+	background-color: #fff;
+	height: 200px;
+}
+
+.top_side_bar, .top_main {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 120px;
+}
+
+.top_left_about {
+	height: 60px;
+	background-color: #ccc;
+}
+
+.top_left_top5 {
+	height: 180px;
+	background-color: #ddd;
+}
+
+.top_left_genre {
+	height: 180px;
+	background-color: #eee;
+}
+
+.main_genre_map {
+	height: 240px;
+	background-color: #ccc;
+}
+
+.current_article_title {
+	height: 40px;
 }

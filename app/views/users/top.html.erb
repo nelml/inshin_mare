@@ -1,3 +1,55 @@
-<h1>Users#top</h1>
-<p>Find me in app/views/users/top.html.erb</p>
-<p>Successfully installed capistrano</p>
+<div class="row top_image">
+	<div class="find_shyumi">
+		<P>シュミを探す</P>
+	</div>
+	<div class="notice">
+		<p>お知らせ</p>
+	</div>
+	<div class="toiawase">
+		<p>お問い合わせ</p>
+	</div>
+	<div class="twitter">
+		<p>Twitter</p>
+	</div>
+</div>
+<div class="row top_side_bar">
+	<div class="col-xs-3">
+		<div class="row top_left_about">
+			<p>このサイトについて</p>
+		</div>
+		<div class="row top_left_top5">
+			<table>
+				<tr>
+					<th><p>シュミ一覧人気順Top5</p></th>
+				</tr>
+				<tr>
+					<th>シュミ１</th>
+				</tr>
+			</table>
+		</div>
+		<div class="row top_left_genre">
+			<p>ランダムジャンル</p>
+		</div>
+	</div>
+
+	<div class="col-xs-6 top_main">
+		<div classs="row main_genre_map">
+			<p>ジャンルマップ</p>
+		</div>
+		<div class="row current_article_title">
+		</div>
+		<div class="row current_article_box">
+			<div class="col-xs-5">1</div>
+			<div class="col-xs-5">2</div>
+			<div class="col-xs-5">3</div>
+			<div class="col-xs-5">4</div>
+		</div>
+	</div>
+
+	<div class="col-xs-3">
+
+	</div>
+
+</div>
+
+<%= render 'shared/test_linker' %>
