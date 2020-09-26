@@ -1,2 +1,40 @@
 <h1>Genres#new</h1>
 <p>Find me in app/views/genres/new.html.erb</p>
+NEW GENRE FORM
+
+
+<%= form_with model: @genre do |f| %>
+<div class="row">
+	<div class="col-xs-2">
+		<%= f.label :name, 'ジャンル名' %>
+	</div>
+	<div class="col-xs-4">
+		<%= f.text_field :name %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-2">
+		<%= f.label :name_kana, 'ふりがな' %>
+	</div>
+	<div class="col-xs-4">
+		<%= f.text_field :name_kana %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-2">
+		<%= f.label :introduction, 'ジャンルの説明' %>
+	</div>
+	<div class="col-xs-4">
+		<%= f.text_area :introduction %>
+	</div>
+	<div>
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+	</div>
+	<div class="col-xs-2">
+	</div>
+	<div class="col-xs-4">
+		<%= f.submit "登録を確定する", class: "btn btn-success" %>
+	</div>
+
+</div>
+<% end %>

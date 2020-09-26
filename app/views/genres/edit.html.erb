@@ -1,2 +1,33 @@
-<h1>Genres#edit</h1>
-<p>Find me in app/views/genres/edit.html.erb</p>
+<h1>ジャンル編集</h1>
+<%= form_with model:@genre do |f| %>
+<div class="row">
+	<div class="col-xs-2">
+		<%= f.label :name, "ジャンル名" %>
+	</div>
+	<div class="col-xs-3">
+		<%= f.text_field :name %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-2">
+		<%= f.label :name_kana, "ふりがな" %>
+	</div>
+	<div class="col-xs-3">
+		<%= f.text_field :name_kana %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-2">
+		<%= f.label :introduction, "ジャンル説明" %>
+	</div>
+	<div class="col-xs-3">
+		<%= f.text_area :introduction %>
+	</div>
+</div>
+<div>
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+</div>
+<div class="row">
+	<%= f.submit "更新", class: "btn btn-success" %>
+</div>
+<% end %>
