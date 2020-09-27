@@ -19,7 +19,7 @@
 				</td>
 				<td class="col-xs-2">
 					<% if current_user.id.to_i == genre.user_id.to_i %>
-						<%= link_to "削除", genre_path(genre.id), method: :delete, class: "btn btn-success", data: { confilm: "本当に削除しますか？"} %>
+					<%= link_to "削除", genre_path(genre.id), method: :delete, class: "btn btn-success", data: { confilm: "本当に削除しますか？"} %>
 					<% else %>
 
 					<% end %>

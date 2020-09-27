@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   resources :genres
   resources :articles
   resources :notices
-  resources :users, only: [:index, :show, :edit]
   get 'users/top' => 'users#top'
+  resources :users, only: [:index, :show, :edit]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

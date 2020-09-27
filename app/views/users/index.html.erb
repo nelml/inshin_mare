@@ -5,7 +5,7 @@
 		<th>ユーザー名</th>
 		<th></th>
 	</tr>
-<%= @users.each do |user| %>
+<% @users.each do |user| %>
 	<tr>
 		<td>
 			<%= attachment_image_tag user, :image, :fill, 40, 40, format: "jpg" %>
@@ -17,4 +17,6 @@
 			<%= link_to "削除", user_registration_path(user.id), method: :delete, class: "btn btn-danger" %>
 		</td>
 	</tr>
+<% end %>
+</table>
 

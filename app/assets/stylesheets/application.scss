@@ -28,12 +28,12 @@ header {
 	left: 0px;
 	z-index: 1;
 	background-color: yellow;
-	height: 120px;
+	height: 50px;
 	width: 100%;
 }
 
 main {
-	margin-top: 120px;
+	margin-top: 50px;
 	background-color: lime;
 }
 
@@ -51,8 +51,8 @@ footer {
 .title_img {
 	background-image: image-url("rails.png");
 	background-position: center;
-	width: 100px;
-	height: 100px;
+	width: 40px;
+	height: 40px;
 }
 
 .top_image {
@@ -63,7 +63,7 @@ footer {
 .top_side_bar, .top_main {
 	position: -webkit-sticky;
 	position: sticky;
-	top: 120px;
+	top: 50px;
 }
 
 .top_left_about {

@@ -1,10 +1,12 @@
 <header class="container-fluid">
   <div class="row">
-    <div class="col-xs-3">ヘッダー２</div>
+    <div class="col-xs-3">
+      <div class="title_img"></div>
+    </div>
     <div class="col-xs-9">
       <div class="row">
         <div class="col-xs-3">
-          コンテンツ１
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         </div>
 
         <div class="col-xs-3">

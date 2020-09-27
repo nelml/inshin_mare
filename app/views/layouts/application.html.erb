@@ -9,9 +9,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="container-fluid">
-    <%= render 'shared/header1' %>
-    <main>
+  <body>
+    <% if user_signed_in? %>
+      <%= render 'shared/header2' %>
+    <% else %>
+      <%= render 'shared/header1' %>
+    <% end %>
+    <main class="container">
       <%= yield %>
       <%= render 'shared/test_linker' %>
     </main>
