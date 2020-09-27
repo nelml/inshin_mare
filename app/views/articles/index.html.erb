@@ -1,2 +1,29 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
+<h1>記事一覧</h1>
+<table class="table">
+	<tr>
+		<th class="col-xs-2">記事名</th>
+		<th class="col-xs-2">ジャンル</th>
+		<th class="col-xs-2">画像</th>
+		<th class="col-xs-6">内容(最初から10文字)</th>
+	</tr>
+<% @articles.each do |article| %>
+	<tr>
+		<td class="col-xs-2">
+			<%= link_to article.title, article_path(article.id) %>
+		</td>
+		<td class="col-xs-2">
+			<%= article.genre_id %>
+		</td>
+		<td class="col-xs-2">
+			<% if article.image.present? %>
+				<%= attachment_image_tag article, :image, :fill, 40, 40, format: "jpg" %>
+			<% else %>
+				<p>画像無し</p>
+			<% end %>
+		</td>
+		<td class="col-xs-6">
+			<%= article.explain %>
+		</td>
+	</tr>
+<% end %>
+</table>
