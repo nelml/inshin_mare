@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_27_174030) do
+ActiveRecord::Schema.define(version: 2020_09_29_142521) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_09_27_174030) do
     t.string "user_id", null: false
     t.string "title", null: false
     t.text "explain", null: false
-    t.string "image"
+    t.string "image_id"
     t.string "ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_09_27_174030) do
     t.string "article_id", null: false
     t.string "user_id"
     t.string "name"
-    t.string "image"
+    t.string "image_id"
     t.text "explain", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 2020_09_27_174030) do
     t.string "last_sign_in_ip"
     t.string "name", default: "NANASHI"
     t.text "introduction"
-    t.string "image"
+    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

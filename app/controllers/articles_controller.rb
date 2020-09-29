@@ -5,11 +5,10 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.ip = request.env["HTTP_X_FORWARDED_FOR"] || request.remote_ip
+    @article.ip = request.env["HTTP_X_FORWARDED_FOR"] || request.remote.ip
     if user_signed_in?
       @article.user_id = current_user.id
     else
-
     end
     if @article.save
       redirect_to articles_path, notice: '新しく記事を作成しました！'
