@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.ip = request.env["HTTP_X_FORWARDED_FOR"] || request.remote.ip
+    @article.ip = request.env["HTTP_X_FORWARDED_FOR"] || request.remote_ip
     if user_signed_in?
       @article.user_id = current_user.id
     else

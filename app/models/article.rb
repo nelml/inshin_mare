@@ -3,5 +3,5 @@ class Article < ApplicationRecord
   belongs_to :genre
   has_many :favarticles
   has_many :comments
-  attachment :image_id
+  attachment :image
 end
