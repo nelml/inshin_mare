@@ -1,2 +1,38 @@
-<h1>Notices#index</h1>
-<p>Find me in app/views/notices/index.html.erb</p>
+<h1>管理者からのお知らせ</h1>
+
+<table class="table">
+	<tr>
+		<th class="col-xs-3">お知らせ日時</th>
+		<th class="col-xs-1"></th>
+		<th class="col-xs-8">お知らせ内容</th>
+	</tr>
+<% @notices.each do |notice| %>
+	<tr>
+		<td class="col-xs-3">
+			<% if notice.updated_at.present? %>
+				<%= notice.updated_at.to_s(:datetime_jp) %>
+			<% else %>
+				<%= notice.created_at.to_s %>
+			<% end %>
+		</td>
+		<td class="col-xs-1">
+			<% if notice.updated_at.present? %>
+				<% notice_time = notice.updated_at %>
+			<% else %>
+				<% notice_time = notice.created_at %>
+			<% end %>
+
+			<% if Time.now < notice_time + 86400 %>
+				<p class="notice_index_new1">NEW</p>
+			<% elsif time.now < notice_time + 604800 %>
+				<p class="notice_index_new2">NEW</p>
+			<% else %>
+
+			<% end %>
+		</td>
+		<td class="col-xs-8">
+			<%= notice.introduction %>
+		</td>
+	</tr>
+<% end %>
+</table>

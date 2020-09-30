@@ -1,0 +1,2 @@
+class FavgenresController < ApplicationController
+end

@@ -1,2 +1,17 @@
-<h1>Notices#new</h1>
-<p>Find me in app/views/notices/new.html.erb</p>
+<h1>新規お知らせ作成</h1>
+<%= form_with model: @notice do |f| %>
+<div class="row">
+	<div class="col-xs-2">
+		<%= f.label :introduction, "お知らせ内容" %>
+	</div>
+	<div class="col-xs-4">
+		<%= f.text_field :introduction %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-4">　</div>
+	<div class="col-xs-4">
+		<%= f.submit "投稿", class: "btn btn-success" %>
+	</div>
+</div>
+<% end %>
