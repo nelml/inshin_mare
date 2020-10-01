@@ -1,23 +1,23 @@
-class ContactUsController < ApplicationController
+class ContactController < ApplicationController
 	before_action :authenticate_user!, only:[:new]
 	before_action :authenticate_admin!, only:[:index, :show]
   def index
-  	@contact_us = Contact_u.all
+  	@contact_us = Contact_us.all
   end
 
   def show
-  	@contact_u = Contact_u.find(params[:id])
+  	@contact_us = Contact_us.find(params[:id])
   end
 
   def new
-  	@contact_u = Contact_u.new
+  	@contact_us = Contact_us.new
   end
 
   def create
-  	contact_u = Contact_u.new(contact_us_params)
-  	user = contact_u.user
-  	if contact_u.save
-  		ContactMailer.contact_mailer(user, contact_u).deliver
+  	contact_us = Contact_us.new(contact_us_params)
+  	user = contact_us.user
+  	if contact_us.save
+  		ContactMailer.contact_mailer(user, contact_us).deliver
   		redirect_to root_path
   	else
   		render action: :new

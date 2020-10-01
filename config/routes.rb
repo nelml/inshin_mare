@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :genres
   resources :articles
   resources :notices
-  resources :contact_us
+  resources :contact
   get 'users/top' => 'users#top'
   resources :users, only: [:index, :show, :edit]
 
