@@ -4,6 +4,7 @@ class NoticesController < ApplicationController
   end
 
   def edit
+    @notices = Notice.find(params[:id])
   end
 
   def new
@@ -11,6 +12,12 @@ class NoticesController < ApplicationController
   end
 
   def update
+    notice = Notice.find(params[:id])
+    if notice.update(notice_params)
+      redirect_to notices_path, notice: "お知らせの更新に成功しました"
+    else
+      render action: :edit
+    end
   end
 
   def create
@@ -23,6 +30,9 @@ class NoticesController < ApplicationController
   end
 
   def destroy
+    notice = Notice.find(params[:id])
+    notice.destroy
+    redirect_to notices_path, notice: "削除に成功しました！"
   end
 
   private
