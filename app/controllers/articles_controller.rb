@@ -1,4 +1,12 @@
 class ArticlesController < ApplicationController
+  def search
+    if params[:genre_search].present?
+      @genres = Genre.where('name_kana LIKE ?', "%#{params[:genre_search]}%")
+    else
+      @genres = Genre.all.order(created_at: :desc).take(4)
+    end
+  end
+
   def new
     @article = Article.new
   end
@@ -22,7 +30,12 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.all
+    search
+    if params[:gen].present?
+      @articles = Article.where(genre_id: params[:gen])
+    else
+      @articles = Article.all.order(created_at: :desc)
+    end
   end
 
   def show

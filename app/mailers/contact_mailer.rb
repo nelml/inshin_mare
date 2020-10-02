@@ -1,7 +1,10 @@
 class ContactMailer < ApplicationMailer
-	def contact_us(user, contact)
+	def send_mail(user, contact)
 		@user = user
 		@answer = contact.explain
-		mail to: user.email, subject: '【インシンマーレ】お問い合わせありがとうございます。'
+		mail(
+			to: user.email,
+			subject: '【インシンマーレ】お問い合わせありがとうございます。'
+			)
 	end
 end

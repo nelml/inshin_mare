@@ -22,6 +22,10 @@
 	box-sizing: border-box;
 }
 
+body {
+	font-family: "游ゴシック", "メイリオ", sans-serif;
+}
+
 header {
 	position: fixed;
 	top: 0px;
@@ -46,6 +50,27 @@ footer {
 	background-color: blue;
 }
 
+//ALL PAGE DESIGN PARAMS
+.font12 {
+	font-size: 12px;
+}
+
+.font16 {
+	font-size: 16px;
+	font-family: "メイリオ", sans-serif;
+}
+
+.font20 {
+	font-size: 20px;
+}
+
+.br20 {
+	margin-top: 20px;
+}
+
+.br50 {
+	margin-top: 50px;
+}
 // TOP
 
 .title_img {
@@ -92,7 +117,7 @@ footer {
 
 //notice_index
 
-.notice_index_new1 {
+.notice_index_new1, .contact_danger {
 	color: #f00;
 	font-weight: bold;
 }

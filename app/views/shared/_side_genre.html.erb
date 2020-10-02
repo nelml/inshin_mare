@@ -1,0 +1,47 @@
+<div class="row">
+	<div class="col-xs-1"></div>
+	<div class="col-xs-11">
+		<h3>ジャンルの検索</h3>
+		<p class="font12">※ひらがなで部分一致検索できます</p>
+	</div>
+</div>
+<div class="br20"></div>
+<%= form_with url: articles_path, method: :get, local: true do |f| %>
+<div class="row">
+	<div class="col-xs-3">
+		<%= f.label :genre_search, "検索" %>
+	</div>
+	<div class="col-xs-3">
+		<%= f.text_field :genre_search %>
+	</div>
+</div>
+<div class="br20"></div>
+<div class="row">
+	<div class="col-xs-3"></div>
+	<div class="col-xs-3">
+		<%= f.submit "検索", class: "btn btn-success" %>
+	</div>
+</div>
+<% end %>
+
+<div class="row">
+	<% if params[:genre_search].present? %>
+		<h3 class="col-xs-12">"<%= params[:genre_search] %>"の検索結果</h3>
+	<% else %>
+		<h3 class="col-xs-12">ジャンル一覧</h3>
+	<% end %>
+</div>
+<div class="br20"></div>
+<% @genres.each do |genre| %>
+	<div class="row">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-1">
+			<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+		</div>
+		<div class="col-xs-9">
+			<p class="font16">
+				<%= link_to genre.name, articles_path(:gen => genre.id) %>
+			</p>
+		</div>
+	</div>
+<% end %>

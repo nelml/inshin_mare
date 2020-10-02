@@ -9,6 +9,6 @@ class User < ApplicationRecord
   has_many :genres
   has_many :articles, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :contact_us
+  has_many :contact
   attachment :image
 end

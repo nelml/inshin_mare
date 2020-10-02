@@ -1,0 +1,31 @@
+<h2>お問い合わせ</h2>
+<%= form_with model: @contact do |f| %>
+	<div class="row">
+		<div class="col-xs-2">
+			<%= f.label :title, "お問い合わせタイトル" %>
+		</div>
+		<div class="col-xs-3">
+			<%= f.text_field :title %>
+		</div>
+	</div>
+	<div class="row">
+		<p class="contact_danger">※お問合せの概要をお書きください。</p>
+	</div>
+	<div class="row">
+		<div class="col-xs-2">
+			<%= f.label :explain, "説明" %>
+		</div>
+		<div class="col-xs-3">
+			<%= f.text_area :explain %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-3">
+			<%= f.submit "送信する", class: "btn btn-danger" %>
+		</div>
+	</div>
+	<div class="row">
+		<p class="contact_danger">※送信するを押すと、登録いただいているメールアドレスに送信確認メールが送信されます。</p>
+	</div>
+<% end %>

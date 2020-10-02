@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'contact_us/index'
-  get 'contact_us/show'
+
   root to: 'users#top'
   devise_for :admins
   devise_for :users
@@ -9,7 +8,7 @@ Rails.application.routes.draw do
   resources :genres
   resources :articles
   resources :notices
-  resources :contact
+  resources :contacts
   get 'users/top' => 'users#top'
   resources :users, only: [:index, :show, :edit]
 
