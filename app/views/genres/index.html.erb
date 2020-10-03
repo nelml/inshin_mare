@@ -1,29 +1,149 @@
-<h1>ジャンル一覧</h1>
-<table class="table">
-	<tr>
-		<th class="col-xs-3">ジャンル名</th>
-		<th class="col-xs-3">ジャンルの説明</th>
-		<th class="col-xs-2"></th>
-		<th class="col-xs-2"></th>
-	</tr>
-		<% @genres.each do |genre| %>
+<div class="row">
+	<div class="col-xs-1"></div>
+	<div class="col-xs-11">
+		<h1>シュミ一覧</h1>
+		<details>
+			<summary>ひらがな検索</summary>
+			<%= form_with url: genres_path, method: :get, local: true do |f| %>
+			<div class="row">
+				<div class="col-xs-1"></div>
+				<h3 class="col-xs-8"><%= f.label :genre_search, "ひらがな検索" %></h3>
+			</div>
+			<div class="row">
+				<div class="col-xs-1">
+				</div>
+				<div class="col-xs-3">
+					<%= f.text_field :genre_search %>
+				</div>
+				<div class="col-xs-3">
+					<%= f.submit "検索", class: "btn btn-success" %>
+				</div>
+			</div>
+			<% end %>
+		</details>
+		<div class="br20"></div>
+		<details>
+			<summary>50音検索</summary>
+				<%= form_with url: genres_path, method: :get, local: true do |f| %>
+					<div class="row">
+						<div class="col-xs-1"></div>
+						<h3 class="col-xs-11"><%= f.label :genre_50search, "50音検索" %></h3>
+					</div>
+					<div class="row">
+						<div class="col-xs-1"></div>
+						<div class="col-xs-3">
+							<%= f.select :genre_50search, {
+								'あ行======': 'あ',
+								'あ': 'あ',
+								'い': 'い',
+								'う': 'う',
+								'え': 'え',
+								'お': 'お',
+								'か行======': 'か',
+								'か': 'か',
+								'き': 'き',
+								'く': 'く',
+								'け': 'け',
+								'こ': 'こ',
+								'さ行======': 'さ',
+								'さ': 'さ',
+								'し': 'し',
+								'す': 'す',
+								'せ': 'せ',
+								'そ': 'そ',
+								'た行======': 'た',
+								'た': 'た',
+								'ち': 'ち',
+								'つ': 'つ',
+								'て': 'て',
+								'と': 'と',
+								'な行======': 'な',
+								'な': 'な',
+								'に': 'に',
+								'ぬ': 'ぬ',
+								'ね': 'ね',
+								'の': 'の',
+								'は行======': 'は',
+								'は': 'は',
+								'ひ': 'ひ',
+								'ふ': 'ふ',
+								'へ': 'へ',
+								'ほ': 'ほ',
+								'ま行======': 'ま',
+								'ま': 'ま',
+								'み': 'み',
+								'む': 'む',
+								'め': 'め',
+								'も': 'も',
+								'や行======': 'や',
+								'や': 'や',
+								'ゆ': 'ゆ',
+								'よ': 'よ',
+								'ら行======': 'ら',
+								'ら': 'ら',
+								'り': 'り',
+								'る': 'る',
+								'れ': 'れ',
+								'ろ': 'ろ',
+								'わ行======': 'わ',
+								'わ': 'わ',
+								'が行======': 'が',
+								'が': 'が',
+								'ぎ': 'ぎ',
+								'ぐ': 'ぐ',
+								'げ': 'げ',
+								'ご': 'ご',
+								'ざ行======': 'ざ',
+								'ざ': 'ざ',
+								'じ': 'じ',
+								'ず': 'ず',
+								'ぜ': 'ぜ',
+								'ぞ': 'ぞ',
+								'だ行======': 'だ',
+								'だ': 'だ',
+								'で': 'で',
+								'ど': 'ど',
+								'ば行======': 'ば',
+								'ば': 'ば',
+								'び': 'び',
+								'ぶ': 'ぶ',
+								'べ': 'べ',
+								'ぼ': 'ぼ'
+							}, { include_blank: '選択してください'}, { class: '50form' } %>
+						</div>
+						<div class="col-xs-2">
+							<%= f.submit "検索", class: "btn btn-success" %>
+						</div>
+					</div>
+				<% end %>
+		</details>
+		<div>　</div>
+		<table class="table">
 			<tr>
-				<td class="col-xs-3">
-					<%= link_to genre.name, genre_path(genre.id) %>
-				</td>
-				<td class="col-xs-3">
-					<%= genre.introduction %>
-				</td>
-				<td class="col-xs-1">
-					<%= link_to "編集", edit_genre_path(genre.id), class: "btn btn-success" %>
-				</td>
-				<td class="col-xs-2">
-					<% if current_user.id.to_i == genre.user_id.to_i %>
-					<%= link_to "削除", genre_path(genre.id), method: :delete, class: "btn btn-success", data: { confilm: "本当に削除しますか？"} %>
-					<% else %>
-
-					<% end %>
-				</td>
+				<th class="col-xs-3">シュミ名</th>
+				<th class="col-xs-3">シュミの説明</th>
+				<th class="col-xs-2"></th>
+				<th class="col-xs-2"></th>
 			</tr>
-		<% end %>
-</table>
+				<% @genres.each do |genre| %>
+					<tr>
+						<td class="col-xs-3">
+							<%= link_to genre.name, genre_path(genre.id) %>
+						</td>
+						<td class="col-xs-3">
+							<%= genre.introduction %>
+						</td>
+						<td class="col-xs-1">
+							<%= link_to "編集", edit_genre_path(genre.id), class: "btn btn-success" %>
+						</td>
+						<td class="col-xs-2">
+							<% if current_user.id.to_i == genre.user_id.to_i %>
+							<%= link_to "削除", genre_path(genre.id), method: :delete, class: "btn btn-success", data: { confilm: "本当に削除しますか？"} %>
+							<% else %>
+
+							<% end %>
+						</td>
+					</tr>
+				<% end %>
+		</table>
+	</div>

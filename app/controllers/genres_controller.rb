@@ -1,5 +1,14 @@
 class GenresController < ApplicationController
   before_action :authenticate_user!, only:[:new, :edit, :show]
+  def search
+    if params[:genre_search].present?
+      @genres = Genre.where('name_kana LIKE ?', "%#{params[:genre_search]}%").order(:name_kana)
+    elsif params[:genre_50search].present?
+      @genres = Genre.where('name_kana LIKE ?', "#{params[:genre_50search]}%").order(:name_kana)
+    else
+      @genres = Genre.where('name_kana LIKE ?', "あ%").order(:name_kana)
+    end
+  end
 
   def new
     @genre = Genre.new
@@ -25,7 +34,7 @@ class GenresController < ApplicationController
   end
 
   def index
-    @genres = Genre.all
+    search
   end
 
   def edit

@@ -1,0 +1,23 @@
+<div class="row">
+	<h3><%= f.label :genre_50search, "50音検索" %></h3>
+</div>
+<div class="row">
+	<div class="col-xs-1"></div>
+	<div class="col-xs-11">
+		<%= f.select :genre_50search, {
+			'あ': 'あ',
+			'い': 'い',
+			'う': 'う',
+			'え': 'え',
+			'お': 'お',
+			'か': 'か',
+			'き': 'き',
+			'く': 'く',
+			'け': 'け',
+			'こ': 'こ',
+		}, { include_blank: '選択してください'}, { class: '50form' } %>
+	</div>
+</div>
+<div class="row">
+	<%= f.submit "検索", class: "btn btn-success" %>
+</div>
