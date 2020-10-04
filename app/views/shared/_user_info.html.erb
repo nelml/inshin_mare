@@ -1,0 +1,22 @@
+<div class="row user_info_image_place under_border">
+	<div class="col-xs-1"></div>
+	<div class="col-xs-11">
+		<% if @user.image_id.present? %>
+			<%= attachment_image_tag :image, :fill, 100, 100, format: "jpg", class: "image_radius" %>
+		<% else %>
+
+		<% end %>
+	</div>
+</div>
+<div class="row under_border">
+	<div class="col-xs-1"></div>
+	<div class="col-xs-11">
+		<h3><span class="glyphicon glyphicon-edit" aria-hidden="true"></span><%= link_to " 会員情報を編集", edit_user_path(@user.id) %></h3>
+	</div>
+</div>
+<div class="row under_border">
+	<div class="col-xs-1"></div>
+	<div class="col-xs-11">
+		<h3><span class="glyphicon glyphicon-share" aria-hidden="true"></span><%= link_to " ログアウト", destroy_user_session_path, method: :delete %></h3>
+	</div>
+</div>

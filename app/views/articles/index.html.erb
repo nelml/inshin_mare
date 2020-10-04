@@ -12,7 +12,7 @@
 					<p class="font20"><%= link_to article.title, article_path(article.id) %></p>
 				</div>
 				<div class="row">
-					<% if article.image.present? %>
+					<% if article.image_id.present? %>
 						<%= attachment_image_tag article, :image, :fill, 40, 40, format: "jpg" %>
 					<% else %>
 						<p>画像無し</p>
