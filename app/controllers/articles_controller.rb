@@ -40,6 +40,13 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @comments = @article.comments.order(created_at: :asc)
+    if @article.user.present?
+      @user = @article.user
+    else
+    end
+    @genre = @article.genre
+    @comment = Comment.new
   end
 
   def edit

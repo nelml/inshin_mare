@@ -12,6 +12,8 @@
   <body>
     <% if user_signed_in? %>
       <%= render 'shared/header2' %>
+    <% elsif admin_signed_in? %>
+      <%= render 'shared/header_admin' %>
     <% else %>
       <%= render 'shared/header1' %>
     <% end %>
