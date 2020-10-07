@@ -31,6 +31,12 @@ class GenresController < ApplicationController
 
   def show
     @genre = Genre.find(params[:id])
+    if @favgenre = Favgenre.exists?(user_id: current_user.id, genre_id: @genre.id)
+      @favgenre = Favgenre.find_by(user_id: current_user.id, genre_id: @genre.id)
+    else
+      @favgenre = Favgenre.new
+    end
+
   end
 
   def index

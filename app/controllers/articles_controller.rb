@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
     @genre = @article.genre
     @comment = Comment.new
     if @favarticle = Favarticle.exists?(user_id: current_user.id, article_id: @article.id)
-      @favarticle = Favarticle.where(user_id: current_user.id, article_id: @article.id)
+      @favarticle = Favarticle.find_by(user_id: current_user.id, article_id: @article.id)
     else
       @favarticle = Favarticle.new
     end
