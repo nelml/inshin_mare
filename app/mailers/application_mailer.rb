@@ -1,3 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'インシンマーレ管理人'
+   default from: 'from@example.com'
+   layout 'mailer'
 end

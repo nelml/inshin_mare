@@ -11,14 +11,14 @@ class ContactsController < ApplicationController
 
   def new
   	@contact = Contact.new
+    @contacts = Contact.all
   end
 
   def create
   	contact = Contact.new(contact_params)
     contact.user_id = current_user.id
-    user = contact.user
   	if contact.save
-  		ContactMailer.send_mail(user, contact).deliver
+  		ContactMailer.send_mail(current_user).deliver_now
   		redirect_to root_path
   	else
   		render action: :new

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FavarticleControllerTest < ActionDispatch::IntegrationTest
+class FavarticlesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

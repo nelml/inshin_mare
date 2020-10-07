@@ -29,3 +29,7 @@
 		<p class="contact_danger">※送信するを押すと、登録いただいているメールアドレスに送信確認メールが送信されます。</p>
 	</div>
 <% end %>
+<% @contacts.each do |co| %>
+	<b><%= co.title %></b>
+	<i><%= co.explain %></i>
+<% end %>

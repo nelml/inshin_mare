@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'users/top' => 'users#top'
   resources :users, only: [:index, :show, :edit]
   resources :comments, only: [:create, :destroy]
+  resources :favgenres, only: [:create, :destroy]
+  resources :favarticles, only: [:create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

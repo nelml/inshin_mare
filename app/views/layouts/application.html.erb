@@ -11,7 +11,13 @@
 
   <body>
     <% if user_signed_in? %>
-      <%= render 'shared/header2' %>
+      <% if request.url&.include?("/articles/") %>
+        <%= render 'shared/header_article' %>
+      <% elsif request.url&.include?("/genres/") %>
+        <%= render 'shared/header_genre' %>
+      <% else %>
+        <%= render 'shared/header2' %>
+      <% end %>
     <% elsif admin_signed_in? %>
       <%= render 'shared/header_admin' %>
     <% else %>
