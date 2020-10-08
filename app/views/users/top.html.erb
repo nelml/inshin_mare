@@ -28,7 +28,16 @@
 			</table>
 		</div>
 		<div class="row top_left_genre">
-			<p>ランダムジャンル</p>
+			<table class="table">
+				<tr>
+					<th class="col-xs-12">ランダムジャンル</th>
+				</tr>
+				<% @genres_random.each do |genre| %>
+					<tr>
+						<td class="col-xs-12"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span>　<%=link_to genre.name, genre_path(genre.id) %></td>
+					</tr>
+				<% end %>
+			</table>
 		</div>
 	</div>
 

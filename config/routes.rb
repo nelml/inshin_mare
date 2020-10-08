@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :notices
   resources :contacts
   get 'users/top' => 'users#top'
-  resources :users, only: [:index, :show, :edit]
+  resources :users, only: [:index, :show, :edit, :update]
   resources :comments, only: [:create, :destroy]
   resources :favgenres, only: [:create, :destroy]
   resources :favarticles, only: [:create, :destroy]

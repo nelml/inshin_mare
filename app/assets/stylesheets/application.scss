@@ -80,6 +80,10 @@ footer {
 	word-break: keep-all;
 }
 
+.color_red {
+	color: #F00;
+}
+
 //user_info
 
 .user_info_image_place {
@@ -99,8 +103,18 @@ footer {
 	height: 40px;
 }
 
+.find_syumi {
+
+}
+
+.notice {
+
+}
+
 .top_image {
-	background-color: #fff;
+	background-image: url("/images/inshin_title.png");
+	background-repeat: no-repeat;
+	background-size: contain;
 	height: 200px;
 }
 
@@ -143,4 +157,14 @@ footer {
 
 .notice_index_new2 {
 	color: #0f0;
+}
+
+//header
+
+.annna {
+	background-image: url("/images/annna.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	height:50px;
+	width: 200px;
 }
