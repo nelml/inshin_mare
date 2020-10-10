@@ -1,9 +1,9 @@
 <div class="row top_image">
 	<div class="find_shyumi">
-		<P>シュミを探す</P>
+		<P><%= link_to "シュミを探す", genres_path %></P>
 	</div>
 	<div class="notice">
-		<p>お知らせ</p>
+		<p><%= link_to "お知らせ", notices_path %></p>
 	</div>
 	<div class="toiawase">
 		<p><%= link_to "お問い合わせ", new_contact_path %></p>
@@ -15,22 +15,45 @@
 <div class="row top_side_bar">
 	<div class="col-xs-3">
 		<div class="row top_left_about">
-			<p>このサイトについて</p>
+			<%= link_to "このサイトについて", about_top_path, class: "left_about_word" %></p>
 		</div>
 		<div class="row top_left_top5">
-			<table>
-				<tr>
-					<th><p>シュミ一覧人気順Top5</p></th>
-				</tr>
-				<tr>
-					<th>シュミ１</th>
-				</tr>
-			</table>
+			<div class="col-xs-1">
+			</div>
+			<p class="font16"><b>シュミいいねランキング</b></p>
+			<div class="col-xs-1">
+			</div>
+			<div class="col-xs-2">
+				<div class="row">
+					<p><b>順位</b></p>
+				</div>
+				<% for num in 1...6 do %>
+				<div class="row left_pad left_rank">
+					<%= num %>
+				</div>
+				<% num.succ %>
+				<% end %>
+			</div>
+			<div class="col-xs-8">
+			<div class="row">
+				<p><b>シュミ名</b></p>
+			</div>
+			<% @genres_rank.each do |genre| %>
+			<div class="row left_rank">
+				<div class="col-xs-9">
+					<%=link_to genre.name, genre_path(genre.id) %>
+				</div>
+				<div class="col-xs-3">
+					<p><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>  <%= genre.favgenres.all.count %></p>
+				</div>
+			</div>
+			<% end %>
+			</div>
 		</div>
 		<div class="row top_left_genre">
 			<table class="table">
 				<tr>
-					<th class="col-xs-12">ランダムジャンル</th>
+					<th class="col-xs-12">ランダムシュミ一覧</th>
 				</tr>
 				<% @genres_random.each do |genre| %>
 					<tr>

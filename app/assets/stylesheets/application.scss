@@ -84,6 +84,10 @@ footer {
 	color: #F00;
 }
 
+.text_center {
+	text-align: center;
+}
+
 //user_info
 
 .user_info_image_place {
@@ -127,10 +131,21 @@ footer {
 .top_left_about {
 	height: 60px;
 	background-color: #ccc;
+	text-align: center;
+	line-height: 60px;
+	border: 2px double #000;
+}
+
+.left_about_word {
+
+}
+
+.left_rank {
+	margin-bottom: 20px;
 }
 
 .top_left_top5 {
-	height: 180px;
+	height: 270px;
 	background-color: #ddd;
 }
 
