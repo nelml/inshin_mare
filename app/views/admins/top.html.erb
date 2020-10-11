@@ -1,23 +1,69 @@
-<h1>Admins#top</h1>
-<p>Find me in app/views/admins/top.html.erb</p>
-<div class="row">
-	<div class="col-xs-3">
-		<table class="table">
-			<tr>
-				<th>ジャンル名</th>
-				<th>ジャンル登録者</th>
-			</tr>
-		<% @genres.each do |genre| %>
-			<tr>
-				<td><%= genre.name %></td>
-				<td><%= genre.user %></td>
-			</tr>
-		</table>
+<h1>管理者用管理画面</h1>
+
+<details>
+	<summary>お問合せ一覧(古いのから5件)</summary>
+	<div class="row">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-10">
+			<table class="table">
+				<tr>
+					<th class="col-xs-2">ユーザー</th>
+					<th class="col-xs-3">内容</th>
+					<th class="col-xs-2">ボタン</th>
+				</tr>
+				<% @contacts.each do |contact| %>
+				<tr>
+					<td><%= link_to contact.user.name, contact_path(contact.user.id) %></td>
+					<td><%= link_to contact.title, contact_path(contact.id) %></td>
+					<td><%= link_to "削除", contact_path(contact.id), method: :delete, class: "btn btn-danger" %>
+				</tr>
+				<% end %>
+			</table>
+		</div>
+</details>
+
+<details class="br20">
+	<summary>ジャンル一覧(最新5件)</summary>
+	<div class="row">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-10">
+			<table class="table">
+				<tr>
+					<th class="col-xs-2">ジャンル名</th>
+					<th class="col-xs-3">ジャンル登録者</th>
+					<th class="col-xs-2"></th>
+				</tr>
+			<% @genres.each do |genre| %>
+				<tr>
+					<td><%= link_to genre.name, genre_path(genre.id) %></td>
+					<td><%= link_to genre.user.name, user_path(genre.user.id) %></td>
+					<td><%= link_to "ジャンル削除", user_path(genre.user.id), method: :delete, class: "btn btn-danger", data: { confirm: "本当に消しますか？" } %></td>
+				</tr>
+			<% end %>
+			</table>
+		</div>
 	</div>
-	<div class="col-xs-3">
+</details>
+
+<details class="br20">
+	<summary>記事一覧(最新10件)</summary>
+	<div class="row">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-10">
+			<table class="table">
+				<tr>
+					<th class="col-xs-2">記事名</th>
+					<th class="col-xs-3">記事ジャンル</th>
+					<th class="col-xs-2"></th>
+				</tr>
+				<% @articles.each do |article| %>
+				<tr>
+					<td><%= link_to article.title, article_path(article.id) %></td>
+					<td><%= link_to article.genre.name, genre_path(article.genre.id) %></td>
+					<td><%= link_to "記事削除", article_path(article.id), method: :delete, class: "btn btn-danger", data: { confirm: "本当に消しますか？" } %></td>
+				</tr>
+				<% end %>
+			</table>
+		</div>
 	</div>
-	<div class="col-xs-3">
-	</div>
-	<div class="col-xs-3">
-	</div>
-</div>
+</details>

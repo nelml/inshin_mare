@@ -13,7 +13,13 @@ class ApplicationController < ActionController::Base
 	private
 
 	def after_sign_in_path_for(resource)
-		root_path
+		if user_signed_in?
+			root_path
+		elsif admin_signed_in?
+			admins_top_path
+		else
+			new_user_session_path
+		end
 	end
 
 	def after_sign_up_path_for(resource)

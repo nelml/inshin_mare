@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
 	before_action :authenticate_user!, only:[:new]
-	before_action :authenticate_admin!, only:[:index, :show]
+	before_action :authenticate_admin!, only:[:index, :show, :destroy]
   def index
   	@contact = Contact.all
   end
@@ -26,6 +26,9 @@ class ContactsController < ApplicationController
   end
 
   def destroy
+    contact = Contact.find(params[:id])
+    contact.destroy
+    redirect_to admins_top_path
   end
 
   private

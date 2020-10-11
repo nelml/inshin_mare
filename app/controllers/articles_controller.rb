@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_admin!, only:[:destroy]
+
   def search
     if params[:genre_search].present?
       @genres = Genre.where('name_kana LIKE ?', "%#{params[:genre_search]}%")
@@ -47,10 +49,12 @@ class ArticlesController < ApplicationController
     end
     @genre = @article.genre
     @comment = Comment.new
-    if @favarticle = Favarticle.exists?(user_id: current_user.id, article_id: @article.id)
-      @favarticle = Favarticle.find_by(user_id: current_user.id, article_id: @article.id)
-    else
-      @favarticle = Favarticle.new
+    if user_signed_in?
+      if @favarticle = Favarticle.exists?(user_id: current_user.id, article_id: @article.id)
+        @favarticle = Favarticle.find_by(user_id: current_user.id, article_id: @article.id)
+      else
+        @favarticle = Favarticle.new
+      end
     end
   end
 
@@ -58,6 +62,9 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
+    article = Article.find(params[:id])
+    article.destroy
+    redirect_to admins_top_path
   end
 
   private

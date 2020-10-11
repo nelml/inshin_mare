@@ -1,5 +1,5 @@
 class GenresController < ApplicationController
-  before_action :authenticate_user!, only:[:new, :edit, :show]
+  before_action :authenticate_user!, only:[:new, :edit]
   def search
     if params[:genre_search].present?
       @genres = Genre.where('name_kana LIKE ?', "%#{params[:genre_search]}%").order(:name_kana)
@@ -31,10 +31,12 @@ class GenresController < ApplicationController
 
   def show
     @genre = Genre.find(params[:id])
-    if @favgenre = Favgenre.exists?(user_id: current_user.id, genre_id: @genre.id)
-      @favgenre = Favgenre.find_by(user_id: current_user.id, genre_id: @genre.id)
-    else
-      @favgenre = Favgenre.new
+    if user_signed_in?
+      if @favgenre = Favgenre.exists?(user_id: current_user.id, genre_id: @genre.id)
+        @favgenre = Favgenre.find_by(user_id: current_user.id, genre_id: @genre.id)
+      else
+        @favgenre = Favgenre.new
+      end
     end
 
   end
@@ -49,8 +51,8 @@ class GenresController < ApplicationController
 
   def destroy
     genre = genre.find(params[:id])
-    book.destroy
-    redirect_to genres_path
+    genre.destroy
+    redirect_to admins_top_path
   end
 
   private
