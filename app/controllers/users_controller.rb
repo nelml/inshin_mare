@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def top
     @genres_random = Genre.all.shuffle.take(5)
     @genres_rank = Genre.all.sort{|a, b| b.favgenres.count <=> a.favgenres.count }.take(5)
+    @articles = Article.all.order(created_at: :desc).take(4)
   end
 
   def index

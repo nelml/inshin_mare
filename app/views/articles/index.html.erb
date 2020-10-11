@@ -22,7 +22,7 @@
 					<span class="glyphicon glyphicon-tag" aria-hidden="true"></span><%= link_to article.genre.name, genre_path(article.genre.id) %>
 				</div>
 				<div class="row">
-					<%= article.explain %>
+					<%= article.explain[0...10] %>...
 				</div>
 			</div>
 		<% end %>
