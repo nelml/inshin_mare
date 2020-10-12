@@ -31,23 +31,14 @@ header {
 	top: 0px;
 	left: 0px;
 	z-index: 1;
-	background-color: yellow;
+	background-color: #116;
 	height: 50px;
 	width: 100%;
 }
 
 main {
 	margin-top: 50px;
-	background-color: lime;
-}
-
-footer {
-	position: fixed;
-	bottom: 0px;
-	left: 0px;
-	width: 100%;
-	height: 50px;
-	background-color: blue;
+	background-color: #eec;
 }
 
 //ALL PAGE DESIGN PARAMS
@@ -70,6 +61,10 @@ footer {
 
 .br50 {
 	margin-top: 50px;
+}
+
+.bg116 {
+	background-color: #116;
 }
 
 .under_border {
@@ -107,12 +102,9 @@ footer {
 	height: 40px;
 }
 
-.find_syumi {
-
-}
-
-.notice {
-
+.how_do_syumi {
+	border: 2px solid #000;
+	padding: 20px;
 }
 
 .top_image {
@@ -161,6 +153,16 @@ footer {
 	height: 40px;
 }
 
+.top_article_style {
+	margin-bottom: 40px;
+	margin-right: 40px;
+}
+
+.article_title_border {
+	border-bottom: 2px solid #cc0;
+	border-left: 8px solid red;
+}
+
 //notice_index
 
 .notice_index_new1, .contact_danger {
@@ -174,16 +176,40 @@ footer {
 
 //header
 
-.annna {
-	background-image: url("/images/annna.png");
-	background-size: contain;
-	background-repeat: no-repeat;
-	height:50px;
-	width: 200px;
-}
-
 .header_line_height {
 	line-height: 50px;
 }
 
+.header_text_style {
+	color: #fff;
+}
+
+.header_text_style:hover {
+	color: #ccc;
+}
+
+.first_text_style:first-letter {
+	font-size: 28px;
+	color: #cff;
+	font-weight: 900;
+}
+
+.btn_header_position {
+	padding: 8px;
+}
+
+
+
 //about
+
+//article_show
+
+.comment_box {
+	padding-top: 10px;
+	height: 100px;
+	border: 2px solid #000;
+}
+
+.image_border {
+	border: 2px solid #000;
+}

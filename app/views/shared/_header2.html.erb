@@ -4,22 +4,19 @@
       <div class="title_img"></div>
     </div>
     <div class="col-xs-2">
-        <div class="annna">
-          はろー
-        </div>
     </div>
     <div class="col-xs-8">
       <div class="row">
-        <div class="col-xs-4">
-          <%= link_to "トップページ", root_path %>
+        <div class="col-xs-4 header_line_height">
+          <p class="first_text_style"><%= link_to "トップページ", root_path, class: "header_text_style" %></p>
         </div>
 
-        <div class="col-xs-4">
-          <%= link_to "マイページ", user_path(current_user) %>
+        <div class="col-xs-4 header_line_height">
+          <p class="first_text_style"><%= link_to "マイページ", user_path(current_user), class: "header_text_style" %></p>
         </div>
 
-        <div class="col-xs-4">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <div class="col-xs-4 header_line_height">
+          <p class="first_text_style"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header_text_style" %></p>
         </div>
       </div>
     </div>

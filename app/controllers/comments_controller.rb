@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 	def create
 		comment = Comment.new(comment_params)
 		@article = comment.article
-		if comment.save
+		if comment.save!
 			redirect_to article_path(@article) , notice: "コメントの投稿に成功しました。"
 		else
 			render "articles/show"

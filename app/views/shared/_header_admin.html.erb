@@ -5,20 +5,26 @@
     </div>
     <div class="col-xs-9">
       <div class="row">
-        <div class="col-xs-3">
-          <%= link_to "お知らせ投稿", new_notice_path %>
+        <div class="col-xs-3 header_line_height">
+          <p class="first_text_style">
+            <%= link_to "お知らせ投稿", new_notice_path, class: "header_text_style" %>
+          </p>
         </div>
 
         <div class="col-xs-3">
           
         </div>
 
-        <div class="col-xs-3">
-          <%= link_to "管理者トップへ", admins_top_path %>
+        <div class="col-xs-3 header_line_height">
+          <p class="first_text_style">
+            <%= link_to "管理者トップへ", admins_top_path, class: "header_text_style" %>
+          </p>
         </div>
 
-        <div class="col-xs-3">
-          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+        <div class="col-xs-3 header_line_height">
+          <p class="first_text_style">
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "header_text_style" %>
+          </p>
         </div>
       </div>
     </div>

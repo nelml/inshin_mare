@@ -6,9 +6,9 @@
 				<!-- ここにお気に入りやプロフィール等 -->
 				<% if @user.present? %>
 					<div class="row">
-						<p>
+						<h3>
 							この記事を書いた人のプロフィール
-						</p>
+						</h3>
 					</div>
 					<div class="row">
 						<p><%= @user.name %></p>
@@ -30,13 +30,18 @@
 					</div>
 				<% else %>
 					<div class="row header_line_height">
-						匿名のユーザー投稿
+						<h3>
+							匿名のユーザー投稿
+						</h3>
+						<p>
+							<%= link_to "ユーザー登録", new_user_registration_path %>すれば投稿したときにプロフィールが掲載されます。
+						</p>
 					</div>
 				<% end %>
 			</div>
 		</div>
 	</div>
-	<div class="col-xs-7">
+	<div class="col-xs-5">
 		<div class="row">
 			<h1><%= @article.title %></h1>
 			<p><span class="glyphicon glyphicon-tag" aria-hidden="true"></span><%=link_to @article.genre.name, genre_path(@article.genre.id) %></p>
@@ -53,16 +58,16 @@
 				<h3>コメント一覧(<%= @comments.count %>件)</h3>
 			</div>
 			<div class="row">
-				<% @comments.each do |comment, cid| %>
-				<div class="row">
-					<div class="col-xs-1">
-						<p><b><%= cid + 1 %></b></p>
-					</div>
+				<% @comments.each_with_index do |comment, cid| %>
+				<div class="row comment_box br20">
 					<div class="col-xs-2">
 						<% if comment.image_id.present? %>
 							<%= attachment_image_tag comment, :image, :fill, 40, 40, "jpg" %>
 						<% else %>
 						<% end %>
+					</div>
+					<div class="col-xs-1">
+						<p><b><%= cid + 1 %></b></p>
 					</div>
 					<div class="col-xs-6">
 						<div class="row">
@@ -75,10 +80,12 @@
 							<%= comment.explain %>
 						</div>
 					</div>
-					<% if @article.user == current_user %>
-						<div class="col-xs-2">
-							<%= link_to "削除", comment_path, method: :delete, class: "btn btn-danger" %>
-						</div>
+					<% if user_signed_in? %>
+						<% if @article.user == current_user %>
+							<div class="col-xs-2">
+								<%= link_to "削除", comment_path, method: :delete, class: "btn btn-danger" %>
+							</div>
+						<% end %>
 					<% end %>
 				</div>
 				<% end %>
@@ -94,7 +101,7 @@
 			</div>
 			<%= form_with model: @comment, url: { controller: "comments", action: "create"} do |f| %>
 				<div class="row">
-					<div class="col-xs-2">
+					<div class="col-xs-3">
 						<%= f.label :name, "名前orタイトル" %>
 					</div>
 					<div class="col-xs-3">
@@ -102,15 +109,15 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-2">
+					<div class="col-xs-3">
 						<%= f.label :image, "画像(あれば)" %>
 					</div>
 					<div class="col-xs-3">
-						<%= f.attachment_field :image %>
+						<%= f.attachment_field :image, class: "br20" %>
 					</div>
 				</div>
 				<div class="row br20">
-					<div class="col-xs-2">
+					<div class="col-xs-3">
 						<%= f.label :explain, "コメント本文" %>
 					</div>
 					<div class="col-xs-3">

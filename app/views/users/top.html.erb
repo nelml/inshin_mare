@@ -60,9 +60,9 @@
 			</div>
 			<div class="row current_article_box">
 			<% @articles.each do |article| %>
-				<div class="col-xs-5">
+				<div class="col-xs-5 top_article_style">
 					<div class="row">
-						<h3><%= link_to article.title, article_path(article.id) %></h3>
+						<h3><%= link_to article.title, article_path(article.id), class: "article_title_border" %></h3>
 					</div>
 					<div class="row">
 						<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
@@ -76,17 +76,15 @@
 
 	<div class="col-xs-3">
 		<div class="row">
-			<div class="find_shyumi">
-				<P><%= link_to "シュミを探す", genres_path %></P>
+			<h2>何をしましょうか？</h2>
+			<div class="row find_shyumi br50">
+				<p><%= link_to "シュミを探す", genres_path, class: "how_do_syumi" %></p>
 			</div>
-			<div class="notice">
-				<p><%= link_to "お知らせ", notices_path %></p>
+			<div class="row notice br50">
+				<p><%= link_to "お知らせ", notices_path, class: "how_do_syumi" %></p>
 			</div>
-			<div class="toiawase">
-				<p><%= link_to "お問い合わせ", new_contact_path %></p>
-			</div>
-			<div class="twitter">
-				<p>Twitter</p>
+			<div class="row toiawase br50">
+				<p><%= link_to "お問い合わせ", new_contact_path, class: "how_do_syumi" %></p>
 			</div>
 		</div>
 	</div>
