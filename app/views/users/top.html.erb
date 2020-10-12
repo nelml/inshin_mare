@@ -74,6 +74,13 @@
 					<div class="row">
 						<h3><%= link_to article.title, article_path(article.id), class: "article_title_border" %></h3>
 					</div>
+					<div class="row img_area_200">
+						<% if article.image_id.present? %>
+							<%= attachment_image_tag article, :image, :fill, 200, 200, format: "jpg" %>
+						<% else %>
+							<%= image_tag "/images/no_img.png" %>
+						<% end %>
+					</div>
 					<div class="row">
 						<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
 						<%= link_to article.genre.name, genre_path(article.genre.id) %>

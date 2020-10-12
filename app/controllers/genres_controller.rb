@@ -31,6 +31,7 @@ class GenresController < ApplicationController
 
   def show
     @genre = Genre.find(params[:id])
+    @articles = @genre.articles.order(created_at: :desc).page(params[:page]).per(10)
     if user_signed_in?
       if @favgenre = Favgenre.exists?(user_id: current_user.id, genre_id: @genre.id)
         @favgenre = Favgenre.find_by(user_id: current_user.id, genre_id: @genre.id)

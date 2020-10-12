@@ -1,15 +1,45 @@
-<h1>ジャンル説明</h1>
+<h1>シュミ詳細</h1>
 <div class="row">
 	<div class="col-xs-2">
 	</div>
 	<div class="col-xs-3">
-		<h1><%= @genre.name %></h1>
+		<h1><span class="glyphicon glyphicon-tag" aria-hidden="true"></span><%= @genre.name %></h1>
 	</div>
 </div>
 <div class="row">
 	<div class="col-xs-3">
 	</div>
 	<div class="col-xs-3">
-		<h2><%= @genre.introduction %></h2>
+		<div class="row">
+			<h3>ジャンルの説明</h3>
+		</div>
+		<div class="row">
+			<h4><%= @genre.introduction %></h4>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<h2>このジャンルの記事</h2>
+</div>
+<div class="row br20">
+	<div class="col-xs-1"></div>
+	<div class="col-xs-6">
+		<table class="table">
+			<tr>
+				<th class="col-xs-2">記事名</th>
+				<th class="col-xs-1">コメント数</th>
+				<th class="col-xs-1">お気に入り数</th>
+			</tr>
+			<% @articles.each do |article| %>
+			<tr>
+				<th><%= link_to article.title, article_path(article.id) %></th>
+				<th><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>　<%= article.comments.all.count %></th>
+				<th><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>　<%= article.favarticles.all.count %></th>
+			</tr>
+			<% end %>
+		</table>
+	</div>
+	<div class="row">
+		<%= paginate @articles %>
 	</div>
 </div>

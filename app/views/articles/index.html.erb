@@ -4,28 +4,30 @@
 	</div>
 	<div class="col-xs-9">
 		<h1>最新記事一覧</h1>
-		<div class="br50"></div>
-		<div class="row">
+		<div class="row br50">
 		<% @articles.each do |article| %>
 			<div class="col-xs-3">
 				<div class="row">
 					<p class="font20"><%= link_to article.title, article_path(article.id) %></p>
 				</div>
-				<div class="row">
+				<div class="row img_area_200 index_item">
 					<% if article.image_id.present? %>
-						<%= attachment_image_tag article, :image, :fill, 40, 40, format: "jpg" %>
+						<%= attachment_image_tag article, :image, :fill, 200, 200, format: "jpg" %>
 					<% else %>
-						<p>画像無し</p>
+						<%= image_tag "/images/no_img.png" %>
 					<% end %>
 				</div>
-				<div class="row">
+				<div class="row br20">
 					<span class="glyphicon glyphicon-tag" aria-hidden="true"></span><%= link_to article.genre.name, genre_path(article.genre.id) %>
 				</div>
-				<div class="row">
+				<div class="row br20">
 					<%= article.explain[0...10] %>...
 				</div>
 			</div>
 		<% end %>
+		</div>
+		<div class="row br20">
+			<%= paginate @articles %>
 		</div>
 	</div>
 </div>

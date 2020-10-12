@@ -1,25 +1,46 @@
-<div class="row user_info_image_place under_border">
+<div class="row">
 	<div class="col-xs-1"></div>
-	<div class="col-xs-11">
+	<div class="col-xs-11 img_area_200">
 		<% if @user.image_id.present? %>
-			<%= attachment_image_tag :image, :fill, 100, 100, format: "jpg", class: "image_radius" %>
+			<%= attachment_image_tag :image, :fill, 200, 200, format: "jpg", class: "image_radius" %>
 		<% else %>
-
+			<%= image_tag "/images/no_img.png" %>
 		<% end %>
 	</div>
 </div>
-<div class="row under_border">
+
+<div class="row">
+	<div class="col-xs-1"></div>
+	<div class="col-xs-11">
+		<% if @user.introduction.present? %>
+			<%= @user.introduction %>
+		<% else %>
+			<p>自己紹介無し（プロフィールの変更から編集できます。)</p>
+		<% end %>
+	</div>
+</div>
+
+<div class="row under_border br20">
 	<div class="col-xs-1"></div>
 	<div class="col-xs-11">
 		<h3><span class="glyphicon glyphicon-edit" aria-hidden="true"></span><%= link_to "プロフィールの変更", edit_user_path(@user.id) %></h3>
 	</div>
 </div>
+
 <div class="row under_border">
 	<div class="col-xs-1"></div>
 	<div class="col-xs-11">
 		<h3><span class="glyphicon glyphicon-share" aria-hidden="true"></span><%= link_to " ログアウト", destroy_user_session_path, method: :delete %></h3>
 	</div>
 </div>
+
+<div class="row br20">
+	<div class="col-xs-1"></div>
+	<div class="col-xs-11">
+		<h3><span class="glyphicon glyphicon-link" aria-hidden="true"></span>　リンク</h3>
+	</div>
+</div>
+
 <div class="row br20">
 	<div class="col-xs-1"></div>
 	<div class="col-xs-11">
@@ -27,16 +48,17 @@
 			<tr>
 				<th class="col-xs-12">お気に入りジャンル</th>
 			</tr>
+			<% @favgenres.each do |fg| %>
 			<tr>
-				<% @favgenres.each do |fg| %>
-					<td class="col-xs-12">
-						<%= link_to fg.genre.name, genre_path(fg.genre.id) %>
-					</td>
-				<% end %>
+				<td class="col-xs-12">
+					<%= link_to fg.genre.name, genre_path(fg.genre.id) %>
+				</td>
 			</tr>
+			<% end %>
 		</table>
 	</div>
 </div>
+
 <div class="row br20">
 	<div class="col-xs-1"></div>
 	<div class="col-xs-11">
@@ -44,13 +66,13 @@
 			<tr>
 				<th class="col-xs-12">お気に入り記事</th>
 			</tr>
+			<% @favarticles.each do |fa| %>
 			<tr>
-				<% @favarticles.each do |fa| %>
-					<td class="col-xs-12">
-						<%= link_to fa.article.title, article_path(fa.article.id) %>
-					</td>
-				<% end %>
+				<td class="col-xs-12">
+					<%= link_to fa.article.title, article_path(fa.article.id) %>
+				</td>
 			</tr>
+			<% end %>
 		</table>
 	</div>
 </div>

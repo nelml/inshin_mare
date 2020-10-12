@@ -3,5 +3,5 @@ class Genre < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :favgenres, dependent: :destroy
 
-  validates :name, length: { in: 1..10 }
+  validates :name, length: { in: 1..10 }, uniqueness: true
 end

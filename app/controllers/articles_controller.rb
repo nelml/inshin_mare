@@ -34,9 +34,9 @@ class ArticlesController < ApplicationController
   def index
     search
     if params[:gen].present?
-      @articles = Article.where(genre_id: params[:gen])
+      @articles = Article.where(genre_id: params[:gen]).includes(:genre).page(params[:page]).per(10)
     else
-      @articles = Article.all.order(created_at: :desc)
+      @articles = Article.all.order(created_at: :desc).includes(:genre).page(params[:page]).per(10)
     end
   end
 
