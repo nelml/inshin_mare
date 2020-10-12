@@ -1,19 +1,25 @@
-<h2>Log in</h2>
+<h2>ようこそインシンマーレへ！</h2>
+<div class="row">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-11">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="row br50">
+        <%= f.label :email, "メールアドレス" %>
+      </div>
+      <div class="row">
+        <%= f.email_field :email, autofocus: true %>
+      </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true %>
+      <div class="row br20">
+        <%= f.label :password, "パスワード" %>
+      </div>
+      <div class="row">
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+
+      <div class="row br20">
+        <%= f.submit "Log in", class: "btn btn-success"%>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password, "パスワード" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

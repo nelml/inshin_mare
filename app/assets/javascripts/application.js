@@ -14,5 +14,7 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery
+//= require jquery.rwdImageMaps
+//= require jquery.rwdImageMaps.min
 //= bootstrap-sprockets
 //= require_tree .

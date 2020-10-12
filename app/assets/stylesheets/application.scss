@@ -42,6 +42,12 @@ main {
 	background-color: #eec;
 }
 
+img {
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+}
+
 //ALL PAGE DESIGN PARAMS
 .font12 {
 	font-size: 12px;
@@ -58,6 +64,10 @@ main {
 
 .br20 {
 	margin-top: 20px;
+}
+
+.pad20 {
+	padding-top: 20px;
 }
 
 .br50 {
@@ -78,6 +88,10 @@ main {
 
 .color_red {
 	color: #F00;
+}
+
+.color_white {
+	color: #fff;
 }
 
 .text_center {
@@ -123,26 +137,17 @@ main {
 
 .top_left_about {
 	height: 60px;
-	background-color: #ccc;
 	text-align: center;
 	line-height: 60px;
-	border: 2px double #000;
-}
-
-.left_about_word {
-
-}
-
-.left_rank {
-	margin-bottom: 20px;
+	background-color: #227;
 }
 
 .top_left_top5 {
-	background-color: #ddd;
+	background-color: #338;
 }
 
 .top_left_genre {
-	background-color: #eee;
+	background-color: #449;
 }
 
 .main_genre_map {

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= favicon_link_tag '/images/favicon.ico' %>
     <title>InshinMare</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -25,7 +26,6 @@
     <% end %>
     <main class="container-fluid">
       <%= yield %>
-      <%= render 'shared/test_linker' %>
     </main>
   </body>
 </html>
