@@ -1,17 +1,68 @@
 <h1>新規お知らせ作成</h1>
 <%= form_with model: @notice do |f| %>
-<div class="row">
-	<div class="col-xs-2">
-		<%= f.label :introduction, "お知らせ内容" %>
+<div class="row br50">
+	<div class="col-xs-1"></div>
+	<div class="col-xs-6">
+		<div class="row">
+			<div class="col-xs-2">
+				<%= f.label :introduction, "お知らせ内容" %>
+			</div>
+			<div class="col-xs-3">
+				<%= f.text_field :introduction %>
+			</div>
+
+			<div class="col-xs-2">
+				<%= f.submit "投稿", class: "btn btn-success" %>
+			</div>
+		</div>
 	</div>
-	<div class="col-xs-4">
-		<%= f.text_field :introduction %>
+	<div class="col-xs-5">
+		<h2>実際のお知らせ見た目</h2>
+		<table class="table">
+			<tr>
+				<th class="col-xs-3">お知らせ日時</th>
+				<th class="col-xs-1"></th>
+				<th class="col-xs-6">お知らせ内容</th>
+				<th class="col-xs-1"></th>
+				<th class="col-xs-1"></th>
+			</tr>
+		<% @notices.each do |notice| %>
+			<tr>
+				<td class="col-xs-3">
+					<% if notice.updated_at.present? %>
+						<%= notice.updated_at.to_s(:datetime_jp) %>
+					<% else %>
+						<%= notice.created_at.to_s(:datetime_jp) %>
+					<% end %>
+				</td>
+				<td class="col-xs-1">
+					<% if notice.updated_at.present? %>
+						<% notice_time = notice.updated_at %>
+					<% else %>
+						<% notice_time = notice.created_at %>
+					<% end %>
+
+					<% if Time.now < notice_time + 86400 %>
+						<p class="notice_index_new1">NEW</p>
+					<% elsif Time.now < notice_time + 604800 %>
+						<p class="notice_index_new2">NEW</p>
+					<% else %>
+
+					<% end %>
+				</td>
+				<td class="col-xs-6">
+					<%= notice.introduction %>
+				</td>
+				<td class="col-xs-1">
+					<%= link_to "編集", edit_notice_path(notice.id), class: "btn btn-success", data: { confirm: "新規投稿に入力中の内容が消えます。" } %>
+				</td>
+				<td class="col-xs-1">
+					<%= link_to "削除", notice_path(notice.id), method: :delete, class: "btn btn-danger", data: { confirm: "削除します。よろしいですか？" } %>
+			</tr>
+		<% end %>
+		</table>
 	</div>
 </div>
-<div class="row">
-	<div class="col-xs-4">　</div>
-	<div class="col-xs-4">
-		<%= f.submit "投稿", class: "btn btn-success" %>
-	</div>
-</div>
+
+
 <% end %>

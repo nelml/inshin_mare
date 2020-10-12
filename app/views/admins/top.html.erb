@@ -1,11 +1,15 @@
 <h1>管理者用管理画面</h1>
 
+<% if params[:contact_page].present? %>
+<details open>
+<% else %>
 <details>
-	<summary>お問合せ一覧(古いのから5件)</summary>
+<% end %>
+	<summary>お問合せ一覧</summary>
 	<div class="row">
 		<div class="col-xs-1"></div>
 		<div class="col-xs-10">
-			<table class="table">
+			<table class="table br20">
 				<tr>
 					<th class="col-xs-2">ユーザー</th>
 					<th class="col-xs-3">内容</th>
@@ -19,15 +23,25 @@
 				</tr>
 				<% end %>
 			</table>
+			<div class="row">
+				<div class="col-xs-4"></div>
+				<div class="col-xs-8">
+					<%= paginate @contacts, param_name: "contact_page" %>
+				</div>
+			</div>
 		</div>
 </details>
 
+<% if params[:genre_page].present? %>
+<details open class="br20">
+<% else %>
 <details class="br20">
-	<summary>ジャンル一覧(最新5件)</summary>
+<% end %>
+	<summary>ジャンル一覧</summary>
 	<div class="row">
 		<div class="col-xs-1"></div>
 		<div class="col-xs-10">
-			<table class="table">
+			<table class="table br20">
 				<tr>
 					<th class="col-xs-2">ジャンル名</th>
 					<th class="col-xs-3">ジャンル登録者</th>
@@ -41,16 +55,26 @@
 				</tr>
 			<% end %>
 			</table>
+			<div class="row">
+				<div class="col-xs-4"></div>
+				<div class="col-xs-8">
+					<%= paginate @genres, param_name: "genre_page" %>
+				</div>
+			</div>
 		</div>
 	</div>
 </details>
 
+<% if params[:article_page].present? %>
+<details open class="br20">
+<% else %>
 <details class="br20">
-	<summary>記事一覧(最新10件)</summary>
+<% end %>
+	<summary>記事一覧</summary>
 	<div class="row">
 		<div class="col-xs-1"></div>
 		<div class="col-xs-10">
-			<table class="table">
+			<table class="table br20">
 				<tr>
 					<th class="col-xs-2">記事名</th>
 					<th class="col-xs-3">記事ジャンル</th>
@@ -64,6 +88,43 @@
 				</tr>
 				<% end %>
 			</table>
+			<div class="row">
+				<div class="col-xs-4"></div>
+				<div class="col-xs-8">
+					<%= paginate @articles, param_name: "article_page" %>
+				</div>
+			</div>
 		</div>
 	</div>
+</details>
+
+<% if params[:user_page].present? %>
+<details open class="br20">
+<% else %>
+<details class="br20">
+<% end %>
+	<summary>新規ユーザー</summary>
+	<div class="row">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-10">
+			<table class="table br20">
+				<tr>
+					<th class="col-xs-2">ユーザー名</th>
+					<th class="col-xs-2"></th>
+				</tr>
+				<% @users.each do |user| %>
+				<tr>
+					<td><%= user.name %></td>
+					<td><%= link_to "削除", user_registration_path, method: :delete, class: "btn btn-danger", data: { confirm: "本当に消しますか？" } %>
+					</td>
+				</tr>
+				<% end %>
+			</table>
+			<div class="row">
+				<div class="col-xs-4"></div>
+				<div class="col-xs-8">
+					<%= paginate @users, param_name: "user_page" %>
+				</div>
+			</div>
+		</div>
 </details>
