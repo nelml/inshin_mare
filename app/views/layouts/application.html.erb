@@ -12,7 +12,11 @@
 
   <body>
     <% if user_signed_in? %>
-      <% if request.url&.include?("/articles/") %>
+      <% if request.url&.include?("/articles/new") %>
+        <%= render 'shared/header2' %>
+      <% elsif request.url&.include?("/genres/new") %>
+        <%= render 'shared/header2' %>
+      <% elsif request.url&.include?("/articles/") %>
         <%= render 'shared/header_article' %>
       <% elsif request.url&.include?("/genres/") %>
         <%= render 'shared/header_genre' %>
