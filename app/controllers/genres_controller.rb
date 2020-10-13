@@ -48,6 +48,9 @@ class GenresController < ApplicationController
 
   def edit
     @genre = Genre.find(params[:id])
+    if @genre.user_id != current_user.id
+      redirect_to root_path
+    end
   end
 
   def destroy
