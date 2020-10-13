@@ -34,9 +34,7 @@ TwitterやInstagramといったSNSが流行ったのは、その手軽さと、�
 ## 設計書
 初期段階ワイヤーフレーム →　https://app.diagrams.net/#G1hVig_2sDRgvukl1bOlDaqyndf1KfkVoz
 
-ER図 → https://app.diagrams.net/#G1k6TO2SV30Ybd9mISaQ1wZ50E--ODP2-g
-
-機能一覧（更新）→ https://docs.google.com/spreadsheets/d/1jTdxQv00BEXI2fs1ddGH1Teu46itygvHpVLznHwb4mg/edit?usp=sharing
+初期段階ER図 → https://app.diagrams.net/#G1k6TO2SV30Ybd9mISaQ1wZ50E--ODP2-g
 
 初期段階テーブル設計書→ https://docs.google.com/spreadsheets/d/1ZI9zFYjuRWigF1WA75MeE7krUJqwZlIi_KDFhk4CiBQ/edit?usp=sharing
 
