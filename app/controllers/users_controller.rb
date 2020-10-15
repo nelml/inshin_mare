@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     if @user == current_user
+      @articles = @user.articles.order(created_at: :desc).includes(:genre).page(params[:page]).per(5)
       @favgenres = @user.favgenres
       @favarticles = @user.favarticles
     else
