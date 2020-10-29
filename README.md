@@ -38,6 +38,10 @@ TwitterやInstagramといったSNSが流行ったのは、その手軽さと、�
 
 初期段階テーブル設計書→ https://docs.google.com/spreadsheets/d/1ZI9zFYjuRWigF1WA75MeE7krUJqwZlIi_KDFhk4CiBQ/edit?usp=sharing
 
+AWSインフラ設計書→ https://docs.google.com/spreadsheets/d/1WSJpwOVN1P_UcvfH0RwFBdEsR-RvR6MZ_W8lbsPPBC0/edit?usp=sharing
+
+AWS構成図→ https://drive.google.com/file/d/1rRDl5bo0m1MsUEuCLr1B6NA52BNaIiJa/view?usp=sharing
+
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1RAvlNPODtXqntH8UGT32uxjOJYtWg5KG1ZcBxNT584s/edit#gid=0
 
