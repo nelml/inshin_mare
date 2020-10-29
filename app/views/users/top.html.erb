@@ -76,7 +76,7 @@
 					</div>
 					<div class="row img_area_200">
 						<% if article.image_id.present? %>
-							<%= attachment_image_tag article, :image, :fill, 200, 200, format: "jpg" %>
+							<%= image_tag "https://inshinmare.s3-ap-northeast-1.amazonaws.com/store/#{article.image_id}" %>
 						<% else %>
 							<%= image_tag "/images/no_img.png" %>
 						<% end %>
