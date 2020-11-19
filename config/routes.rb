@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'tests/test1'
+  get 'tests/test2'
+  get 'tests/test3'
   root to: 'users#top'
   devise_for :admins
   devise_for :users
@@ -14,6 +17,9 @@ Rails.application.routes.draw do
   resources :comments, only: [:create, :destroy]
   resources :favgenres, only: [:create, :destroy]
   resources :favarticles, only: [:create, :destroy]
+  get 'tests/test1' => 'tests#test1', as: 'test1'
+  get 'tests/test2' => 'tests#test2', as: 'test2'
+  get 'tests/test3' => 'tests#test3', as: 'test3'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
