@@ -10,7 +10,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body onload="brython()">
     <% if user_signed_in? %>
       <% if request.url[-4..-1] == "edit" %>
         <%= render 'shared/header2' %>
