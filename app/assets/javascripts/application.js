@@ -18,5 +18,6 @@
 //= require jquery.rwdImageMaps.min
 //= require brython
 //= require brython_stdlib
+//= require three
 //= bootstrap-sprockets
 //= require_tree .

@@ -52,8 +52,17 @@
 	<div class="col-xs-9 top_main">
 		<div class="col-xs-1"></div>
 		<div class="col-xs-11">
+			<table class="table top_notice_table">
+				<tr>
+					<th>お知らせ一覧</th>
+				</tr>
+				<% @notices.each do |notice| %>
+				<tr>
+					<td><%= link_to notice.introduction, notice_path(notice.id) %></td>
+				</tr>
+				<% end %>
+			</table>
 			<script type="text/python" src="/pyth/test.py"></script>
-			<button id="button_alert">alert</button>
 			<script>
 				$(document).ready(function(){
 					$('img[usemap]').rwdImageMaps();

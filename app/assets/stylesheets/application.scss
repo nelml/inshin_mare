@@ -179,6 +179,13 @@ img {
 	border-left: 8px solid red;
 }
 
+.top_notice_table {
+	width: 500px;
+	height: 100px;
+	overflow-y: auto;
+	border: #000 solid 2px;
+}
+
 //notice_index
 
 .notice_index_new1, .contact_danger {

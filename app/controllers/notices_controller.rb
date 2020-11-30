@@ -5,6 +5,10 @@ class NoticesController < ApplicationController
     @notices = Notice.all.order(created_at: :desc)
   end
 
+  def show
+    @notice = Notice.find(params[:id])
+  end
+
   def edit
     @notice = Notice.find(params[:id])
   end
