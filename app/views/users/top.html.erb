@@ -52,16 +52,24 @@
 	<div class="col-xs-9 top_main">
 		<div class="col-xs-1"></div>
 		<div class="col-xs-11">
-			<table class="table top_notice_table">
-				<tr>
-					<th>お知らせ一覧</th>
-				</tr>
-				<% @notices.each do |notice| %>
-				<tr>
-					<td><%= link_to notice.introduction, notice_path(notice.id) %></td>
-				</tr>
-				<% end %>
-			</table>
+			<div class="top_notice_table">
+				<table class="table">
+					<tr>
+						<th>お知らせ一覧</th>
+						<th></th>
+					</tr>
+					<% @notices.each do |notice| %>
+					<tr>
+						<td><%= notice.created_at.to_s(:datetime_jp) %>
+						<td><%= link_to notice.introduction, notice_path(notice.id) %></td>
+					</tr>
+					<% end %>
+				</table>
+				<div class="pad_left_20">
+					<%= link_to "お知らせ一覧へ", notices_path %>
+				</div>
+			</div>
+
 			<script type="text/python" src="/pyth/test.py"></script>
 			<script>
 				$(document).ready(function(){

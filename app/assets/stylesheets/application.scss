@@ -70,6 +70,10 @@ img {
 	padding-top: 20px;
 }
 
+.pad_left_20 {
+	padding-left: 20px;
+}
+
 .br50 {
 	margin-top: 50px;
 }
@@ -181,9 +185,10 @@ img {
 
 .top_notice_table {
 	width: 500px;
-	height: 100px;
+	height: 120px;
 	overflow-y: auto;
 	border: #000 solid 2px;
+	margin: 20px 20px;
 }
 
 //notice_index
