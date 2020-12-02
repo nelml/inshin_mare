@@ -1,5 +1,6 @@
 class TestsController < ApplicationController
   def test1
+  	@notices = Notice.all
   end
 
   def test2
